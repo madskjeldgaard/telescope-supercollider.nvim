@@ -13,8 +13,16 @@ local scnvim = require'scnvim'
 
 local M = {}
 
+local check_scnvim_loaded = function()
+  local scnvim_loaded, scnvim = pcall(require, "scnvim")
+  assert(scnvim_loaded, "SCNvim is not loaded - please make sure to load SCNvim first")
+end
+
 local scnvim_class_definitions = function(opts)
   opts = opts or {}
+
+  check_scnvim_loaded()
+
   local path = require "scnvim/path".get_plugin_root_dir()
   local tagsPath = require "scnvim/path".get_cache_dir() .. "/tags"
   local tagsFile = io.open(tagsPath)
