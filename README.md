@@ -22,15 +22,14 @@ Load the extension *after* the call to `telescope.setup{}`
 ```lua
 require'telescope'.load_extension('supercollider')
 ```
-
 ## Usage
 
-**Note** scnvim needs to be started (`:SCNvimStart`) before you can browse the documentation.
+**Note** scnvim needs to be started (`:SCNvimStart`) before calling these.
 
-Use the Telescope command.
+Call it directly from lua:
 
 ```vim
-:Telescope sc_definitions
+:lua require'telescope'.extensions.supercollider.sc_definitions()
 ```
 
 ## Available finders

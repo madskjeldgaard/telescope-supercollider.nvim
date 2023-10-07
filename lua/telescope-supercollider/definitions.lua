@@ -11,8 +11,6 @@ local uv = vim.loop
 local api = vim.api
 local scnvim = require'scnvim'
 
-local M = {}
-
 local check_scnvim_loaded = function()
   local scnvim_loaded, scnvim = pcall(require, "scnvim")
   assert(scnvim_loaded, "SCNvim is not loaded - please make sure to load SCNvim first")
@@ -48,9 +46,6 @@ local scnvim_class_definitions = function(opts)
       results = tagKeys
     }),
     sorter = require("telescope.config").values.generic_sorter(opts),
-    -- Add a previewer that shows the file in question
-    -- FIXME: This doesn't work yet
-    previewer = require("telescope.previewers").cat.new(opts),
     attach_mappings = function(prompt_bufnr, map)
       local open_class = function()
         local selection = require("telescope.actions.state").get_selected_entry()
@@ -69,6 +64,4 @@ local scnvim_class_definitions = function(opts)
   }):find()
 end
 
-M.scnvim_class_definitions = scnvim_class_definitions
-
-return M
+return scnvim_class_definitions
