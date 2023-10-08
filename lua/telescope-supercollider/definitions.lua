@@ -1,15 +1,14 @@
-local pickers = require'telescope.pickers'
-local finders = require'telescope.finders'
-local conf = require'telescope.config'.values
-local actions = require'telescope.actions'
-local action_state = require'telescope.actions.state'
-local previewers = require'telescope.previewers'
-local ts_utils = require'telescope.utils'
+local pickers = require 'telescope.pickers'
+local finders = require 'telescope.finders'
+local conf = require 'telescope.config'.values
+local actions = require 'telescope.actions'
+local action_state = require 'telescope.actions.state'
+local previewers = require 'telescope.previewers'
+local ts_utils = require 'telescope.utils'
 local defaulter = ts_utils.make_default_callable
 
 local uv = vim.loop
 local api = vim.api
-local scnvim = require'scnvim'
 
 local check_scnvim_loaded = function()
   local scnvim_loaded, scnvim = pcall(require, "scnvim")
