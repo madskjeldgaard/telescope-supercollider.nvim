@@ -32,6 +32,15 @@ Call it directly from lua:
 :lua require'telescope'.extensions.supercollider.sc_definitions()
 ```
 
+An example of a mapping in scnvim:
+
+```lua
+["<F3>"] = scnvim.map(function()
+    require 'telescope'.extensions.supercollider.sc_definitions()
+  end, { "n", "x", "i" }),
+
+```
+
 ## Available finders
 
 * `sc_definitions` - Find definitions of classes and functions
